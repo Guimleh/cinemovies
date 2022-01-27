@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AjouterFilmController!{% endblock %}
+
+{% block body %}
+{% if erreur %}
+    <p>
+        Saisissez un nom existant :-[
+    </p>
+{% endif %}
+{{ form_start(form)}}
+{{ form_row(form.name) }}
+
+    
+{{ form_row(form.plot) }}
+{{ form_row(form.mark) }}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">Ne vous inquiétez pas, nous ne vous spammerons pas.</div>
+    </div>
+    <div class="d-flex bd-highlight mb-3">
+        {{ form_row(form.Valider) }}
+    </div>
+{% endblock %}

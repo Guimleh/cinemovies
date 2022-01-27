@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+<ol class="list-group">
+{% for movie in movies %}
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">
+        <a href="{{path('fiche', {'id' : movie.id})}}" class="link-info">{{movie.name}}</a>
+      </div>
+      Nombre de votes : {{movie.nbVotes}}
+    </div>
+    
+    {% if movie.mark < 5 %}
+    <span class="badge bg-danger">
+    {% else %}
+    <span class="badge bg-success">
+    {% endif %}
+    {{movie.mark}}/10
+    </span>
+    
+    
+    
+    
+  </li>
+  {% endfor %}
+</ol>
+    
+{% endblock %}
